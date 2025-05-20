@@ -19,4 +19,5 @@ jobs:
         run: docker pull mixeway/scanner:latest
 
       - name: Run Scan
-        run: docker run -e OSS_USERNAME=01169239@pw.edu.pl -e OSS_KEY= {{ secrets.OSS_KEY }} -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY= {{ sectets.MIXWAY_KEY }} -e MIXEWAY_PROJECT_ID=186 -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=spzc_secure_lab_app -e COMMIT_ID=test -e BRANCH=master -v /opt/lab_sec_audit/sast:/opt/sources mixeway/scanner:latest
+        run: docker run -e OSS_USERNAME=${{ secrets.USERNAME }} -e OSS_KEY=${{ secrets.OSS_KEY }} -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=${{ secrets.MIXEWAY_KEY }} -e MIXEWAY_PROJECT_ID=186 -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=spzc_secure_lab_app -e COMMIT_ID=test -e BRANCH=master -v /home/runner/work/spzc_lab_secure_app/spzc_lab_secure_app:/opt/sources mixeway/scanner:latest
+
